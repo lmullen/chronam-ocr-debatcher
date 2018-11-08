@@ -1,0 +1,5 @@
+language: go
+script: go build -i
+go: 
+- "1.10.x"
+- "1.11.x"
