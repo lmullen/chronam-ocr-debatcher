@@ -30,7 +30,8 @@ func main() {
 	var wg sync.WaitGroup
 	wg.Add(len(batches))
 	for _, batch := range batches {
-		go processOcrBatch(batch, &wg)
+		// go processOcrBatch(batch, &wg)
+		processOcrBatch(batch, &wg)
 	}
 	wg.Wait()
 }
