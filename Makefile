@@ -10,3 +10,6 @@ clean :
 
 test : 
 	./$(BINARY_NAME) test-data/*.tar.bz2
+
+release:
+	goreleaser release --skip-publish --rm-dist
