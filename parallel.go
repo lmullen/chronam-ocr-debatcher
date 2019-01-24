@@ -6,6 +6,9 @@ type result struct {
 	err   error
 }
 
+// Run a processing function on each of the paths. Up to the `concurrencyLimit`
+// number of paths will be processed concurrently.
+//
 // Adapted from: https://gist.github.com/montanaflynn/ea4b92ed640f790c4b9cee36046a5383
 func boundedParallelProcess(batches []string, concurrencyLimit int) []bool {
 
@@ -27,9 +30,9 @@ func boundedParallelProcess(batches []string, concurrencyLimit int) []bool {
 		// start a go routine with the index and url in a closure
 		go func(i int, batch string) {
 
-			// this sends an empty struct into the semaphoreChan which
-			// is basically saying add one to the limit, but when the
-			// limit has been reached block until there is room
+			// this sends an empty struct into the semaphoreChan which is basically
+			// saying add one to the limit, but when the limit has been reached block
+			// until there is room
 			semaphoreChan <- struct{}{}
 
 			// process the batch
@@ -38,9 +41,8 @@ func boundedParallelProcess(batches []string, concurrencyLimit int) []bool {
 			// now we can send the result through the resultsChan
 			resultsChan <- res
 
-			// once we're done it's we read from the semaphoreChan which
-			// has the effect of removing one from the limit and allowing
-			// another goroutine to start
+			// once we're done it's we read from the semaphoreChan which has the
+			// effect of removing one from the limit and starting another goroutine
 			<-semaphoreChan
 
 		}(i, batch)
