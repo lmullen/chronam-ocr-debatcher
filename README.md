@@ -13,3 +13,5 @@ Usage:
 ```
 ./chronam-ocr-debatcher [--processes=8] <path/to/a/batch.tar.bz2 ...>
 ```
+
+You can download binaries from the [releases page](https://github.com/lmullen/chronam-ocr-debatcher/releases).
