@@ -1,4 +1,4 @@
-[![Build Status](https://travis-ci.org/public-bible/chronam-ocr-debatcher.svg?branch=master)](https://travis-ci.org/public-bible/chronam-ocr-debatcher)
+[![Build Status](https://travis-ci.org/lmullen/chronam-ocr-debatcher.svg?branch=master)](https://travis-ci.org/lmullen/chronam-ocr-debatcher)
 
 # Chronicling America OCR debatcher
 
