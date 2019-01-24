@@ -10,7 +10,6 @@ package main
 import (
 	"log"
 	"os"
-	"sync"
 )
 
 func main() {
@@ -26,12 +25,7 @@ func main() {
 		log.Fatalln(err)
 	}
 
-	// Process each of the batches concurrently
-	var wg sync.WaitGroup
-	wg.Add(len(batches))
-	for _, batch := range batches {
-		// go processOcrBatch(batch, &wg)
-		processOcrBatch(batch, &wg)
-	}
-	wg.Wait()
+	var processed []bool
+	boundedParallelProcess(batches, 10)
+	log.Println(processed)
 }
