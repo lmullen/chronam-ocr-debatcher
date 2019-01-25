@@ -1,1 +1,1 @@
-module github.com/public-bible/chronam-ocr-debatcher
+module github.com/lmullen/chronam-ocr-debatcher
